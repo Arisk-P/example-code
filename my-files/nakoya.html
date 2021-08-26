@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Script>
+        let data = []
+        let ask = prompt(`Data: ${data}`)
+        while (ask.toLowerCase() != 'exit') {
+            data.push(Number(ask))
+            ask = prompt(`Data: ${data}`)
+        } 
+            let sumData = data.reduce((a, b) => a + b, 0)
+            let avgData = (sumData) / (data.length)
+            alert (`Sum: ${sumData}\nAvg: ${avgData}`)
+         
+        
+        
+    </Script>
+</body>
+</html>

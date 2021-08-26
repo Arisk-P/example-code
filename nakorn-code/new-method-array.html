@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data1 = ['apple', 'banana', 'cherry', 'avocado', 'durian']
+const data2 = 'apple,banana,cherry'
+const data3 = [0, 1, -1, 'string', true, false, null]
+
+console.log('isArray:', Array.isArray(data1))
+console.log('isArray:', Array.isArray(data2))
+
+console.log('-------------')
+
+let i = 0
+for (let item of data1) {
+    console.log(i, item)
+    i++
+}
+
+data1.forEach(function (item, i) {
+    console.log(i, item)
+})
+
+console.log('-------------')
+
+console.log('before:', data1)
+// data1.push('melon')
+data1.unshift('melon')
+console.log('after:', data1)
+
+console.log('-------------')
+
+console.log('before:', data1)
+// data1.pop()
+data1.shift()
+console.log('after:', data1)
+
+console.log('-------------')
+
+const searchFruit = data1.indexOf('avocado')
+console.log('.indexOf():', searchFruit)
+
+console.log('before:', data1)
+if (searchFruit >= 0) {
+    // data1 = data1.slice(2)
+    data1.splice(searchFruit, 1)
+}
+console.log('after:', data1)
+
+console.log('-------------')
+
+const abc = ['a', 'b', 'c']
+const def = ['d', 'e', 'f']
+
+console.log([abc, def])
+console.log(abc.concat(def))
+console.log(abc)
+console.log(abc.join(','))
+    </script>
+</body>
+</html>

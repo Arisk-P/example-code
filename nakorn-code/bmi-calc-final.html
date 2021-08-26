@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- external -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+
+    <!-- internal -->
+    <style>
+        /* CSS */
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="box">
+                        <form onsubmit="calcBmi(event)">
+                            <label class="label">
+                                <b>น้ำหนักตัว (kg.)</b>
+                                <input id="weight" type="number" class="input" value="0">
+                            </label>
+                            <label class="label">
+                                <b>ส่วนสูง (cm.)</b>
+                                <input id="height" type="number" class="input" value="0">
+                            </label>
+                            <hr>
+                            <button class="button is-link">เริ่มคำนวณ</button>
+                        </form>
+                    </div>
+
+                    <div class="box">
+                        ค่า BMI เท่ากับ <b id="bmiResult">(รอผลลัพธ์)</b>
+                    </div>
+
+                    <div class="box">
+                        <table class="table is-striped">
+                            <thead>
+                                <tr>
+                                    <th>BMI kg/m<sup>2</sup></th>
+                                    <th>อยู่ในเกณท์</th>
+                                    <th>ภาวะเสี่ยงต่อโรค</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableResult">
+                                <tr data-bmi-min="0" data-bmi-max="18.4">
+                                    <!-- td:first-child -->
+                                    <!-- td:last-child -->
+                                    <td>น้อยกว่า 18.5</td>
+                                    <td>น้ำหนักน้อย / ผอม</td>
+                                    <td>มากกว่าคนปกติ</td>
+                                </tr>
+                                <tr data-bmi-min="18.5" data-bmi-max="24.9">
+                                    <td>ระหว่าง 18.5 - 24.9</td>
+                                    <td>ปกติ (สุขภาพดี)</td>						
+                                    <td>เท่าคนปกติ</td>
+                                </tr>
+                                <tr data-bmi-min="25" data-bmi-max="29.9">
+                                    <td>ระหว่าง 25 - 29.9</td>
+                                    <td>น้ำหนักเกิน</td>	
+                                    <td>ไม่ค่อยแข็งแรง</td>					
+                                </tr>
+                                <tr data-bmi-min="30" data-bmi-max="34.9">
+                                    <td>ระหว่าง 30 - 34.9</td>
+                                    <td>ท้วม / โรคอ้วนระดับ 1</td>	
+                                    <td>อันตรายระดับ 1</td>					
+                                </tr>
+                                <tr data-bmi-min="35" data-bmi-max="39.9">
+                                    <td>ระหว่าง 35 - 39.9</td>
+                                    <td>อ้วน / โรคอ้วนระดับ 2</td>
+                                    <td>อันตรายระดับ 2</td>
+                                </tr>
+                                <tr data-bmi-min="40" data-bmi-max="999">
+                                    <td>มากกว่า 40</td>
+                                    <td>อ้วนมาก / โรคอ้วนระดับ 3</td>	
+                                    <td>อันตรายระดับ 3</td>					
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+        function calcBmi(event) {
+            event.preventDefault()
+            const weight = document.getElementById('weight').value
+            const height = document.getElementById('height').value
+            const bmi = (weight / Math.pow((height)/100, 2))
+            document.getElementById('bmiResult').innerText = bmi.toFixed(1)
+
+            // - Single
+            // document.getElementById('tableResult')
+            // document.querySelector('#tableResult')
+
+            // - [Array]
+            // document.getElementsByClassName('box')
+            // document.querySelectorAll('.box')
+
+            const tableResults = document.querySelectorAll('#tableResult > tr')
+            for (const tr of tableResults) {
+                tr.classList.remove(...tr.classList)
+            }
+            for (const tr of tableResults) {
+                if (bmi >= Number(tr.dataset.bmiMin) && bmi <= Number(tr.dataset.bmiMax)) {
+                    tr.classList.add('has-text-danger')
+                    tr.classList.add('has-text-weight-bold')
+                    break
+                }
+            }
+
+            const data = ['a', 'b', 'c']
+            myFunction(data) // myFunction(['a', 'b', 'c'])
+            myFunction(...data) // myFunction('a', 'b', 'c')
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // people = person [name, age, gender]
+        // const people = [
+        //     ['John Doe', 18, 'male'],
+        //     ['Joe Dan', 19, 'male'],
+        //     ['Jane Dee', 17, 'female'],
+        //     ['male', 20, 'James Bond']
+        // ]
+
+        // [] array: index => value
+        // {} object: key => value
+
+        const person = {
+            name: 'John Doe',
+            age: 18,
+            gender: 'male'
+        }
+
+        console.log(person['name'])
+        console.log(person['age'])
+        console.log(person['gender'])
+
+        console.log(person.name)
+        console.log(person.age)
+        console.log(person.gender)
+
+        // const getKey = prompt('Please input key to get value:')
+        // alert(person[getKey])
+
+        person.age = 19
+        console.log(person)
+
+        delete person.gender
+        console.log(person)
+
+        person.male = true
+        person.female = false
+        console.log(person)
+    </script>
+</body>
+</html>

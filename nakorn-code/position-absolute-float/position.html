@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 50px;
+        }
+        hr {
+            margin: 40px 0;
+        }
+        .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .p-relative {
+            /* position: static; */
+            background-color: blue;
+            position: relative;
+            left: 30px;
+            top: 10px;
+        }
+        .p-absolute {
+            background-color: blue;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .zone {
+            position: relative;
+            border: 2px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box p-relative"></div>
+    <div class="box"></div>
+    <hr>
+    <div class="zone">
+        <div class="box"></div>
+        <div class="box p-absolute"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

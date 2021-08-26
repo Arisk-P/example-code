@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Hello World</h1>
+
+    <h2>onclick</h2>
+    <button onclick="setTitleColor('red')">Red</button>
+    <button onclick="setTitleColor('blue')">Blue</button>
+    <button onclick="setTitleColor('green')">Green</button>
+    <button onclick="setTitleColor('#4595ad')">#4595ad</button>
+
+    <label>
+        custom color:
+        <input id="customColor" type="text" value="#FFFFFF">
+    </label>
+    <button onclick="setTitleColor(document.getElementById('customColor').value)">Update</button>
+
+    <hr>
+
+    <h2>onclick (HTMLelement)</h2>
+
+    <button id="ocRed">Red</button>
+    <button id="ocBlue">Blue</button>
+    <button id="ocGreen">Green</button>
+    <button id="ocCustom">#4595ad</button>
+
+    <hr>
+
+    <h2>addEventListener</h2>
+
+    <button id="eventListenerRed">Red</button>
+    <button id="eventListenerBlue">Blue</button>
+    <button id="eventListenerGreen">Green</button>
+    <button id="eventListenerCustom">#4595ad</button>
+
+    <script>
+        const h1Title = document.getElementById('title')
+
+        const setTitleColor = (color) => {
+            h1Title.style.color = color
+        }
+
+        // dom
+        // window.document
+        setTimeout(() => {
+            // console.log(h1Title)
+            console.dir(h1Title)
+            // h1Title.innerText = '<i>Hello John</i>'
+            h1Title.innerHTML = '<i>Hello John</i>'
+        }, 5000)
+
+        // onclick element
+        document.getElementById('ocRed').onclick = () => setTitleColor('red')
+        document.getElementById('ocBlue').onclick = () => setTitleColor('blue')
+        document.getElementById('ocGreen').onclick = () => setTitleColor('green')
+        document.getElementById('ocCustom').onclick = () => setTitleColor('#4595ad')
+
+        // addEventListener
+        document.getElementById('eventListenerRed').addEventListener('click', () => setTitleColor('red'))
+        document.getElementById('eventListenerBlue').addEventListener('click', () => setTitleColor('blue'))
+        document.getElementById('eventListenerGreen').addEventListener('click', () => setTitleColor('green'))
+        document.getElementById('eventListenerCustom').addEventListener('click', () => setTitleColor('#4595ad'))
+    </script>
+</body>
+</html>

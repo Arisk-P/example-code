@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const usb1 = function (item) {
+    return item.length >= 4
+}
+const usb2 = function (item) {
+    return item.length >= 5
+}
+const usb3 = function (item) {
+    return item.length >= 6
+}
+
+const data = ['ant', 'Apple', 'watermelon', 'banana', 'melon', 'ABC', 'abcdef']
+
+// for (let item of data) {
+//     if (item.length >= 6) {
+//         console.log(item)
+//         break
+//     }
+// }
+
+const found = data.find(usb3)
+// const found = data.findIndex(usb3)
+console.log(found)
+
+console.log('-----------------')
+
+// let result = [] // result = instance Array .push()
+// for (let item of data) {
+//     if (item.length >= 6) {
+//         result.push(item)
+//     }
+// }
+// console.log(result)
+
+const filtered = data.filter(usb3)
+console.log(filtered)
+
+// map = transform
+// const dataAsUPPERCASE = data.map(function (string) {
+//     return string.toUpperCase()
+// })
+// const dataAsUPPERCASE = data.map(s => s.toUpperCase())
+const dataAsUPPERCASE = data.map(function (string) {
+    // if (string.charAt(0) == 'a' || string.charAt(0) == 'A')
+    if (string.charAt(0).toLowerCase() == 'a') {
+        return string
+    } else {
+        return string.toUpperCase()
+    }
+})
+console.log(dataAsUPPERCASE)
+
+    </script>
+</body>
+</html>

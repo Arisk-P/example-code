@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- external -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+
+    <!-- internal -->
+    <style>
+        /* CSS */
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-4">
+                    <div class="box">
+                        <form onsubmit="calcBmi(event)">
+                            <label class="label">
+                                <b>น้ำหนักตัว (kg.)</b>
+                                <input id="weight" type="number" class="input">
+                            </label>
+                            <label class="label">
+                                <b>ส่วนสูง (cm.)</b>
+                                <input id="height" type="number" class="input">
+                            </label>
+                            <hr>
+                            <button class="button is-link">เริ่มคำนวณ</button>
+                        </form>
+                    </div>
+
+                    <div class="box">
+                        ค่า BMI เท่ากับ <b id="bmiResult">(รอผลลัพธ์)</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcBmi(event) {
+            event.preventDefault()
+            const weight = document.getElementById('weight').value
+            const height = document.getElementById('height').value
+            const output = weight / Math.pow((height)/100, 2)
+            document.getElementById('bmiResult').innerText = output.toFixed(2)
+            // bmiResult property innerText = '???'
+        }
+        
+        
+    </script>
+</body>
+</html>
